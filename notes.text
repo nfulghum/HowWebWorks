@@ -1,0 +1,69 @@
+What is HTTP
+Hypertext Transfer Protocol. transmits documents like html and allows communication between servers/browsers
+
+What is a URL
+unfiform resource locator. address for internet site.
+
+What is DNS
+Domain Name System. converts urls into IP addresses
+
+What is a query string
+Allows you to pass key-value pairs into the URL
+
+List two HTTP verbs and their use cases
+GET - get data from a servers
+POST - send data to the servers
+
+What is an HTTP request
+Request from a client to a server which follows the HTTP Protocol
+
+What is an http response
+Response from a server to a client which follows HTTP Protocol
+
+What is an HTTP header
+header is essentially an advanced search for the request or response.
+EX Request Headers: Accept, Host, Cookie, User-Agent
+Ex Response Headers: Content-type, Last-modified
+
+What happens when you type a URL in a browsers
+Browser converts name into an ip address
+browser makes a request
+server sends response
+browser makes a DOM from HTML and adds any other resources CSS, JS etc
+browser makes separate HTTP request for those resources and receives response from the server
+
+Find IP Address
+
+(base) nick@Nicholass-MBP ~ % dig icanhazdadjoke.com
+
+; <<>> DiG 9.10.6 <<>> icanhazdadjoke.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45223
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;icanhazdadjoke.com.		IN	A
+
+;; ANSWER SECTION:
+icanhazdadjoke.com.	5	IN	A	172.67.211.64
+icanhazdadjoke.com.	5	IN	A	104.21.37.176
+
+;; Query time: 24 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1)
+;; WHEN: Mon May 09 14:07:12 CDT 2022
+;; MSG SIZE  rcvd: 79
+
+
+Find all jokes containing pirate
+
+curl -H "Accept: application/json" "https://icanhazdadjoke.com/search?term=pirate"                               
+{"current_page":1,"limit":20,"next_page":1,"previous_page":1,"results":
+[{"id":"QuscibaMClb","joke":"What does a pirate pay for his corn? A buccaneer!"},
+{"id":"SvzIBAQS0Dd","joke":"What did the pirate say on his 80th birthday? Aye Matey!"},
+{"id":"2gii3LeN7Ed","joke":"Why couldn't the kid see the pirate movie? Because it was rated arrr!"},
+{"id":"exXSCtkOKe","joke":"Why do pirates not know the alphabet? They always get stuck at \"C\"."},
+{"id":"SnOf2gqjiqc","joke":"Why are pirates called pirates? Because they arrr!"}],
+"search_term":"pirate","status":200,"total_jokes":5,"total_pages":1}
